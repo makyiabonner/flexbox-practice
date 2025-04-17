@@ -3,6 +3,15 @@
     --secondary-color: black;
     --primary-color: rgb(20, 83, 255);
     --highlight-primary: rgb(64, 147, 255);
+/* Flexbox mini-project :root*/
+    --flex-primary-color: orangered;
+    --flex-secondary-color: black;
+    --flex-font:"Open Sans", sans-serif;
+    --flex-lg-font: 3rem;
+    --flex-md-font: 1rem;
+    --flex-sm-font: .5rem;
+    --flex-primary-bg-color:rgb(241, 241, 241);
+    --flex-secondary-color: white;
 }
 *::after,
 *::before,
