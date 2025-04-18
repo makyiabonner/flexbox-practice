@@ -8,8 +8,8 @@
     --flex-secondary-color: black;
     --flex-span-primary-color: rgb(102, 102, 102);
     --flex-font:"Open Sans", sans-serif;
-    --flex-lg-font: 3rem;
-    --flex-md-font: 2rem;
+    --flex-lg-font: clamp(2rem, 13vw,3rem);
+    --flex-md-font: clamp(1.5rem, 8vw,2rem);
     --flex-sm-font: .9rem;
     --flex-xs-font: .7rem;
     --flex-primary-bg-color:rgb(248, 248, 248);
@@ -22,6 +22,7 @@
     margin: 0;
     padding: 0;
 }
+
 nav{
     display: flex;
     justify-content: space-between;
@@ -75,115 +76,162 @@ a:hover{
 }
 
 /* Start of Flexbox mini-project */
-.flex-section{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--flex-primary-bg-color);
-    height: fit-content;
-}
-.flex-main-title,
-.flex-h2,
-.flex-card-item,
-.flex-card-pricing,
-.flex-card-span,
-.flex-section>form>input+button,
-.flex-light-span,
-.flex-orange-span{
-    font-family: var(--flex-font);
-}
+    .flex-section{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--flex-primary-bg-color);
+        height: fit-content;
+        padding: 3rem;
+    }
+    .flex-main-title,
+    .flex-h2,
+    .flex-card-item,
+    .flex-card-pricing,
+    .flex-card-span,
+    .flex-section>form>input+button,
+    .flex-light-span,
+    .flex-orange-span{
+        font-family: var(--flex-font);
+    }
 
-.flex-main-title{
-    font-size: var(--flex-lg-font);
-}
-.flex-main-title:last-of-type{
-    color: var(--flex-primary-color);
-}
-.flex-hero{
-    display: flex;
-    flex-direction: column;
-}
-.flex-card-section{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 1.5rem;
-    margin-top: 7rem;
-}
-.flex-h2{
-    font-size: var(--flex-md-font);
-}
+    .flex-main-title{
+        text-align: center;
+        font-size: var(--flex-lg-font);
+    }
+    .flex-main-title:last-of-type{
+        color: var(--flex-primary-color);
+    }
+    .flex-hero{
+        display: flex;
+        flex-direction: column;
+        min-width: 1rem;
+    }
+    .flex-card-section{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 1.5rem;
+        margin-top: 7rem;
+    }
+    .flex-h2{
+        font-size: var(--flex-md-font);
+    }
 
-.flex-card{
-    display: flex;
-    position: relative;
-    background-color: var(--flex-secondary-bg-color);
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 350px;
-    width: 300px;
-    box-shadow:  0px 20px 15px -15px rgba(0, 0, 0, 0.3);
-    padding: 3.3rem;
-}
+    .flex-card{
+        display: flex;
+        flex: 1 auto;
+        position: relative;
+        background-color: var(--flex-secondary-bg-color);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 350px;
+        width: 18rem;
+        min-width: 13rem;
+        box-shadow:  0px 20px 15px -15px rgba(0, 0, 0, 0.3);
+        padding: 3.3rem;
+    }
 
-.flex-card > .flex-h2{
-    margin-bottom: 1rem;
-}
-.flex-card-ul{
-    display: flex;
-    flex-direction: column;
-    gap: .5rem;
-    color: var(--flex-span-primary-color);
-    text-align: center;
-    flex: 1;
-}
-.flex-card-item{
-    display: flex;
-    justify-content: center;
-}
-.flex-card-item>p{
-    font-size: var(--flex-sm-font);
-}
-.flex-card-pricing{
-    position: relative;
-    margin-bottom: 0;
+    .flex-card > .flex-h2{
+        margin-bottom: 1rem;
+    }
+    .flex-card-ul{
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+        color: var(--flex-span-primary-color);
+        text-align: center;
+        flex: 1;
+    }
+    .flex-card-item{
+        display: flex;
+        justify-content: center;
+    }
+    .flex-card-item>p{
+        font-size: var(--flex-sm-font);
+    }
+    .flex-card-pricing{
+        position: relative;
+        margin-bottom: 0;
 
-}
-.flex-card-pricing::before{
-    position: absolute;
-    top: -.1rem;
-    left: -.7rem;
-    font-size: 1.2rem;
-    content: '$';
-    color: var(--flex-span-primary-color);
-}
-.flex-card-span{
-    font-size: var(--flex-xs-font);
-    color: var(--flex-span-primary-color);
-    margin-top: 0;
-}
-.secondary-color-p{
-    color: var(--flex-primary-color);
-}
-.flex-cta-message{
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 1.3rem;
-}
-.flex-light-span,
-.flex-orange-span{
-    font-size: var(--flex-xs-font);
-}
-.flex-light-span{
-    color: var(--flex-span-primary-color);
-}
-.flex-orange-span{
-    color: var(--flex-primary-color);
-}
-
+    }
+    .flex-card-pricing::before{
+        position: absolute;
+        top: -.1rem;
+        left: -.7rem;
+        font-size: 1.2rem;
+        content: '$';
+        color: var(--flex-span-primary-color);
+    }
+    .flex-card-span{
+        font-size: var(--flex-xs-font);
+        color: var(--flex-span-primary-color);
+        margin-top: 0;
+    }
+    .secondary-color-p{
+        color: var(--flex-primary-color);
+    }
+    .flex-cta-message{
+        margin-top: 1.3rem;
+    }
+    .flex-cta-message:first-of-type{
+        display: flex;
+        justify-content: flex-end;
+    }
+    .flex-cta-message:last-child{
+        text-align: center;
+    }
+    .flex-light-span,
+    .flex-orange-span{
+        font-size: var(--flex-xs-font);
+    }
+    .flex-light-span{
+        color: var(--flex-span-primary-color);
+    }
+    .flex-orange-span{
+        color: var(--flex-primary-color);
+    }
+    .flex-footer{
+        display: flex;
+        flex-direction: column;
+        width: clamp(18rem, 70vw, 65rem);
+        margin-top: 2rem;
+        gap: 2rem;
+    }
+    .flex-form{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 2rem;
+    }
+    .flex-footer > .flex-h2{
+        text-align: center;
+    }
+    .flex-input{
+        height: 3rem;
+        border: none;
+        padding-left: 1rem;
+        flex: 1 1 auto;
+    }
+    .flex-signup-btn{
+        flex: 1 auto;
+        height: 3rem;
+        border: none;
+        color: var(--flex-secondary-bg-color);
+        background-color: var(--flex-primary-color);
+        font-size: var(--flex-xs-font);
+        min-width: 8rem;
+    }
+    .flex-input::placeholder{
+        color: rgb(190, 190, 190);
+    }
+    .flex-input,
+    .flex-signup-btn{
+        border-radius: 5px;
+    }
 /* End of Flexbox mini-project */
 @media (max-width:768px) {
     ul{
