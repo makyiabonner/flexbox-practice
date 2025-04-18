@@ -193,6 +193,7 @@ a:hover{
     }
     .flex-orange-span{
         color: var(--flex-primary-color);
+        cursor: pointer;
     }
     .flex-footer{
         display: flex;
@@ -215,6 +216,11 @@ a:hover{
         border: none;
         padding-left: 1rem;
         flex: 1 1 auto;
+        outline: transparent;
+        transition: border .3s ease-in;
+    }
+    .flex-input:focus{
+        border: var(--flex-primary-color) 1px solid;
     }
     .flex-signup-btn{
         flex: 1 auto;
@@ -224,6 +230,7 @@ a:hover{
         background-color: var(--flex-primary-color);
         font-size: var(--flex-xs-font);
         min-width: 8rem;
+        cursor: pointer;
     }
     .flex-input::placeholder{
         color: rgb(190, 190, 190);
