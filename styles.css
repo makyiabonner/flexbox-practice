@@ -240,6 +240,30 @@ a:hover{
         border-radius: 5px;
     }
 /* End of Flexbox mini-project */
+/* Start of Flexbox pt.2 mini-project */
+    .flex2-ul{
+        display: flex;
+        width: clamp(20rem, 80vw, 50rem);
+        justify-self: center;
+        flex-wrap: wrap;
+        gap: 0;
+    }
+    .portrait-li,
+    .landscape-li{
+        background-color: var(--primary-color);
+        border: black solid 1px;
+    }
+    .portrait-li{
+        flex: 1 1 20%;
+        min-width: 10rem;
+        height: 14rem;
+
+    }
+    .landscape-li{
+        flex: 2 1 40%;
+        min-width: 15rem;
+    }
+/* End of Flexbox pt.2 mini-project */
 @media (max-width:768px) {
     ul{
         display: none;
