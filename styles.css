@@ -264,6 +264,9 @@ a:hover{
         min-width: 15rem;
     }
 /* End of Flexbox pt.2 mini-project */
+/* Start of DOM mini-project */
+    
+/* End of DOM mini-project */
 @media (max-width:768px) {
     ul{
         display: none;

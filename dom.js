@@ -14,7 +14,7 @@ the '=' will have an eventListener doing the math operations with prevNum & curr
 the math operations functionality:
   the function checks input storage for specific operator in array
   once found it, does the math in prevNum (operator) currNum
-  return answer in inputbox.textContent
+  return answer in INPUT_BOX.textContent
 
 JS Stuff for calculator
   when operator is clicked it should store prevNumber
@@ -79,3 +79,31 @@ const DIGITS_OPERATORS = [
   "/",
   "c",
 ];
+
+//DOM elements
+const CALCULATOR = document.createElement("div");
+const INPUT_BOX = document.createElement("div");
+
+//storage for prevNum and currNum
+let prevNum = INPUT_BOX.textContent;
+let currNum = INPUT_BOX.textContent;
+
+//DOM classes
+CALCULATOR.className = "calculator-body";
+INPUT_BOX.className = "calculator-inputbox";
+CALCULATOR.appendChild(INPUT_BOX);
+
+//Assigning each button an input
+for (let i = 0; i < DIGITS_OPERATORS.length; i++) {
+  const BUTTON = document.createElement("button");
+  BUTTON.textContent = DIGITS_OPERATORS[i];
+  if (typeof DIGITS_OPERATORS[i] === "number") {
+    BUTTON.className = "digit-btn";
+  } else {
+    BUTTON.className = "operator-btn";
+  }
+  CALCULATOR.appendChild(BUTTON);
+}
+
+//Appending elements
+document.body.appendChild(CALCULATOR);
