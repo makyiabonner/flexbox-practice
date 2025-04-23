@@ -1,0 +1,50 @@
+/*
+calculator needs
+  clear functionality
+  storage for currNum
+  storage for prevNum
+  math functionality
+  compliance between DOM and JS
+steps:
+user press buttons to input numbers
+once an operator is pressed the number is saved as prevNum
+the input box is then cleared and user is prompted to input another number
+once the user inputs the second number and press '=' button, its saved as currNum
+the '=' will have an eventListener doing the math operations with prevNum & currNum as args
+the math operations functionality:
+  the function checks input storage for specific operator in array
+  once found it, does the math in prevNum (operator) currNum
+  return answer in inputbox.textContent
+
+JS Stuff for calculator
+  when operator is clicked it should store prevNumber
+  when '=' is clicked it stores currentNum runs math function
+  storage for digit and operator buttons
+  function for operators
+  math function needs to take two args: currentNum, prevNum
+DOM Stuff for calculator
+  storage for input
+  need eventListener to push user's input to input array
+  need eventListener for '=' button to callback math function
+*/
+//storage for input
+let input = [];
+
+//storage for digits and operator buttons
+const DIGITS_OPERATORS = [
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  "-",
+  "+",
+  "*",
+  "/",
+  "c",
+];
