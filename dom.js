@@ -30,6 +30,37 @@ DOM Stuff for calculator
 //storage for input
 let input = [];
 
+//Calculator operations
+function clearInput() {
+  return (input = []);
+}
+function getSum(num1, num2) {
+  return num1 + num2;
+}
+function getDifference(num1, num2) {
+  return num1 - num2;
+}
+function getProduct(num1, num2) {
+  return num1 * num2;
+}
+function getQuotent(num1, num2) {
+  return num1 / num2;
+}
+//Getting Calculator Answer
+function getMathAns(num1, num2) {
+  if (input.includes("+")) {
+    return getSum(num1, num2);
+  }
+  if (input.includes("-")) {
+    return getDifference(num1, num2);
+  }
+  if (input.includes("*")) {
+    return getProduct(num1, num2);
+  }
+  if (input.includes("/")) {
+    return getQuotent(num1, num2);
+  }
+}
 //storage for digits and operator buttons
 const DIGITS_OPERATORS = [
   0,
