@@ -78,20 +78,30 @@ const DIGITS_OPERATORS = [
   "*",
   "/",
   "c",
+  "=",
 ];
 
 //DOM elements
 const CALCULATOR = document.createElement("div");
 const INPUT_BOX = document.createElement("div");
+const BUTTON_DIV = document.createElement("div");
+const INPUT_TEXT = document.createElement("p");
 
 //storage for prevNum and currNum
-let prevNum = INPUT_BOX.textContent;
-let currNum = INPUT_BOX.textContent;
+let prevNum = INPUT_TEXT.textContent;
+let currNum = INPUT_TEXT.textContent;
+
+//Appending elements
+document.body.appendChild(CALCULATOR);
+CALCULATOR.appendChild(INPUT_BOX);
+CALCULATOR.appendChild(BUTTON_DIV);
+INPUT_BOX.appendChild(INPUT_TEXT);
 
 //DOM classes
 CALCULATOR.className = "calculator-body";
 INPUT_BOX.className = "calculator-inputbox";
-CALCULATOR.appendChild(INPUT_BOX);
+INPUT_TEXT.className = "calculator-text";
+BUTTON_DIV.className = "calculator-btnDiv";
 
 //Assigning each button an input
 for (let i = 0; i < DIGITS_OPERATORS.length; i++) {
@@ -102,8 +112,6 @@ for (let i = 0; i < DIGITS_OPERATORS.length; i++) {
   } else {
     BUTTON.className = "operator-btn";
   }
-  CALCULATOR.appendChild(BUTTON);
+  BUTTON_DIV.appendChild(BUTTON);
 }
-
-//Appending elements
-document.body.appendChild(CALCULATOR);
+INPUT_TEXT.textContent = 1234;
