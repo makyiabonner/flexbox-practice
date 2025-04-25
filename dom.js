@@ -114,4 +114,7 @@ for (let i = 0; i < DIGITS_OPERATORS.length; i++) {
   }
   BUTTON_DIV.appendChild(BUTTON);
 }
-INPUT_TEXT.textContent = 1234;
+//adding eventListeners
+CALCULATOR.addEventListener("click", (e) => {
+  INPUT_TEXT.textContent += e.target.textContent;
+});
