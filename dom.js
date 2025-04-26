@@ -28,11 +28,11 @@ DOM Stuff for calculator
   need eventListener for '=' button to callback math function
 */
 //storage for input
-let input = [];
+let currentOperator = null;
 
 //Calculator operations
 function clearInput() {
-  return (input = []);
+  return (INPUT_TEXT.textContent = "");
 }
 function getSum(num1, num2) {
   return num1 + num2;
@@ -47,18 +47,27 @@ function getQuotent(num1, num2) {
   return num1 / num2;
 }
 //Getting Calculator Answer
-function getMathAns(num1, num2) {
-  if (input.includes("+")) {
-    return getSum(num1, num2);
+function getMathAns(nums, operator) {
+  if (operator.includes("+")) {
+    return (INPUT_TEXT.textContent = getSum(Number(nums[0]), Number(nums[1])));
   }
-  if (input.includes("-")) {
-    return getDifference(num1, num2);
+  if (operator.includes("-")) {
+    return (INPUT_TEXT.textContent = getDifference(
+      Number(nums[0]),
+      Number(nums[1])
+    ));
   }
-  if (input.includes("*")) {
-    return getProduct(num1, num2);
+  if (operator.includes("*")) {
+    return (INPUT_TEXT.textContent = getProduct(
+      Number(nums[0]),
+      Number(nums[1])
+    ));
   }
-  if (input.includes("/")) {
-    return getQuotent(num1, num2);
+  if (operator.includes("/")) {
+    return (INPUT_TEXT.textContent = getQuotent(
+      Number(nums[0]),
+      Number(nums[1])
+    ));
   }
 }
 //storage for digits and operator buttons
@@ -80,6 +89,7 @@ const DIGITS_OPERATORS = [
   "c",
   "=",
 ];
+const OPERATOR = ["-", "+", "*", "/", "c"];
 
 //DOM elements
 const CALCULATOR = document.createElement("div");
@@ -117,4 +127,22 @@ for (let i = 0; i < DIGITS_OPERATORS.length; i++) {
 //adding eventListeners
 CALCULATOR.addEventListener("click", (e) => {
   INPUT_TEXT.textContent += e.target.textContent;
+
+  if (e.target.textContent === "c") {
+    clearInput();
+  }
+  if (e.target.textContent === "=") {
+    //checks for operator in input
+    for (let op of OPERATOR) {
+      if (INPUT_TEXT.textContent.includes(op)) {
+        currentOperator = op;
+      }
+    }
+    input = INPUT_TEXT.textContent
+      .slice(0, INPUT_TEXT.textContent.length - 1)
+      .split(currentOperator);
+    console.log(input);
+    clearInput();
+    getMathAns(input, currentOperator);
+  }
 });
