@@ -29,6 +29,7 @@ DOM Stuff for calculator
 */
 //storage for input
 let currentOperator = null;
+let currentAnswer = null;
 
 //Calculator operations
 function clearInput() {
@@ -126,6 +127,12 @@ for (let i = 0; i < DIGITS_OPERATORS.length; i++) {
 }
 //adding eventListeners
 CALCULATOR.addEventListener("click", (e) => {
+  //clears previous answer from text-box
+  if (currentAnswer) {
+    currentAnswer = null;
+    clearInput();
+  }
+
   INPUT_TEXT.textContent += e.target.textContent;
 
   if (e.target.textContent === "c") {
@@ -141,8 +148,7 @@ CALCULATOR.addEventListener("click", (e) => {
     input = INPUT_TEXT.textContent
       .slice(0, INPUT_TEXT.textContent.length - 1)
       .split(currentOperator);
-    console.log(input);
     clearInput();
-    getMathAns(input, currentOperator);
+    currentAnswer = getMathAns(input, currentOperator);
   }
 });
