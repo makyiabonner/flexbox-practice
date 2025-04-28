@@ -178,10 +178,16 @@ CLOSE_PARENT.addEventListener("click", (e) => {
   game logic is used to compare to cpu choice
   announce winner
 */
-const ROCKPAPERSCISSORS_CONTAINER = document.createElement("container");
-const ROCK = document.createElement("img");
-const PAPER = document.createElement("img");
-const SCISSOR = document.createElement("img");
+
+//Creating DOM RPS elements
+const RPS_GAME_CONTAINER = document.createElement("container");
+const GAME_ROW = document.createElement("div");
+const DECIDER = document.createElement("p");
+
+//DOM RPS classes
+RPS_GAME_CONTAINER.classList.add("rps-container");
+GAME_ROW.classList.add("rps-game-row");
+DECIDER.classList.add("rps-decider");
 
 //Game choices for Rock, Paper, Scissors
 const CHOICES = [
@@ -199,6 +205,20 @@ const CHOICES = [
   },
 ];
 
+//Creating DOM RPS Game Button elements
+for (const choice of CHOICES) {
+  const RPS_BUTTON = document.createElement("button");
+  RPS_BUTTON.setAttribute("choice", choice.name);
+  RPS_BUTTON.classList.add = "rps-btn";
+
+  const CHOICE_IMG = document.createElement("img");
+  CHOICE_IMG.setAttribute("src", choice.img);
+  CHOICE_IMG.classList.add("rps-btn-img");
+
+  RPS_BUTTON.appendChild(CHOICE_IMG);
+  GAME_ROW.appendChild(RPS_BUTTON);
+}
+
 //function for CPU choices
 function cpuChoices() {
   return CHOICES[Math.floor(Math.random() * CHOICES.length)].name;
@@ -206,22 +226,26 @@ function cpuChoices() {
 
 //function for game logic
 function rpsGameLogic(user) {
-  if (user === cpuChoices()) {
-    return "tie";
+  if (user.choice === cpuChoices()) {
+    return (DECIDER.textContent = "tie");
   }
   if (
-    (user === "rock" && cpuChoices() === "scissors") ||
-    (user === "paper" && cpuChoices() === "rock") ||
-    (user === "scissors" && cpuChoices() === "paper")
+    (user.choice === "rock" && cpuChoices() === "scissors") ||
+    (user.choice === "paper" && cpuChoices() === "rock") ||
+    (user.choice === "scissors" && cpuChoices() === "paper")
   ) {
-    return "you win";
+    return (DECIDER.textContent = "you win");
   }
   if (
-    (user === "scissors" && cpuChoices() === "rock") ||
-    (user === "paper" && cpuChoices() === "scissors") ||
-    (user === "rock" && cpuChoices() === "paper")
+    (user.choice === "scissors" && cpuChoices() === "rock") ||
+    (user.choice === "paper" && cpuChoices() === "scissors") ||
+    (user.choice === "rock" && cpuChoices() === "paper")
   ) {
-    return "you lose";
+    return (DECIDER.textContent = "you lose");
   }
+  setTimeout(() => (DECIDER.textContent = null), 2000);
 }
+
+GAME_ROW.addEventListener("click", rpsGameLogic(e));
+//
 console.log(cpuChoices());
