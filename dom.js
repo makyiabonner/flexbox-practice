@@ -204,4 +204,24 @@ function cpuChoices() {
   return CHOICES[Math.floor(Math.random() * CHOICES.length)].name;
 }
 
+//function for game logic
+function rpsGameLogic(user) {
+  if (user === cpuChoices()) {
+    return "tie";
+  }
+  if (
+    (user === "rock" && cpuChoices() === "scissors") ||
+    (user === "paper" && cpuChoices() === "rock") ||
+    (user === "scissors" && cpuChoices() === "paper")
+  ) {
+    return "you win";
+  }
+  if (
+    (user === "scissors" && cpuChoices() === "rock") ||
+    (user === "paper" && cpuChoices() === "scissors") ||
+    (user === "rock" && cpuChoices() === "paper")
+  ) {
+    return "you lose";
+  }
+}
 console.log(cpuChoices());
