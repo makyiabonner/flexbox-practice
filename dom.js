@@ -131,6 +131,7 @@ CALCULATOR.addEventListener("click", (e) => {
   if (currentAnswer) {
     currentAnswer = null;
     clearInput();
+    return;
   }
 
   INPUT_TEXT.textContent += e.target.textContent;
@@ -143,6 +144,7 @@ CALCULATOR.addEventListener("click", (e) => {
     for (let op of OPERATOR) {
       if (INPUT_TEXT.textContent.includes(op)) {
         currentOperator = op;
+        break;
       }
     }
     input = INPUT_TEXT.textContent
@@ -151,4 +153,20 @@ CALCULATOR.addEventListener("click", (e) => {
     clearInput();
     currentAnswer = getMathAns(input, currentOperator);
   }
+});
+
+const CLOSE_PARENT = document.createElement("section");
+CLOSE_PARENT.className = "parent";
+
+for (let i = 0; i < 3; i++) {
+  const CLOSE_BUTTON = document.createElement("button");
+  CLOSE_BUTTON.className = "child";
+  CLOSE_BUTTON.textContent = "X";
+  CLOSE_PARENT.appendChild(CLOSE_BUTTON);
+}
+
+document.body.appendChild(CLOSE_PARENT);
+
+CLOSE_PARENT.addEventListener("click", (e) => {
+  e.target.textContent = "HOW IS THIS WORKING";
 });
