@@ -171,6 +171,13 @@ CLOSE_PARENT.addEventListener("click", (e) => {
   e.target.textContent = "HOW IS THIS WORKING";
 });
 
+/* 
+  Logic for Rock Paper Scissors:
+  User clicks button to activate game
+  button id is then used as user choice
+  game logic is used to compare to cpu choice
+  announce winner
+*/
 const ROCKPAPERSCISSORS_CONTAINER = document.createElement("container");
 const ROCK = document.createElement("img");
 const PAPER = document.createElement("img");
