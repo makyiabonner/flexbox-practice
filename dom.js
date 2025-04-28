@@ -245,7 +245,11 @@ function rpsGameLogic(user) {
   }
   setTimeout(() => (DECIDER.textContent = null), 2000);
 }
+//Appending DOM RPS elements
+document.body.appendChild(RPS_GAME_CONTAINER);
+RPS_GAME_CONTAINER.appendChild(GAME_ROW);
+RPS_GAME_CONTAINER.appendChild(DECIDER);
 
+//Add eventListener
 GAME_ROW.addEventListener("click", rpsGameLogic(e));
-//
 console.log(cpuChoices());

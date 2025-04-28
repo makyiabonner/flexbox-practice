@@ -322,6 +322,7 @@ a:hover{
         color: white;
     }
 /* End of DOM mini-project */
+
 @media (max-width:768px) {
     ul{
         display: none;
