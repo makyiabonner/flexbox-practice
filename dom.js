@@ -170,3 +170,31 @@ document.body.appendChild(CLOSE_PARENT);
 CLOSE_PARENT.addEventListener("click", (e) => {
   e.target.textContent = "HOW IS THIS WORKING";
 });
+
+const ROCKPAPERSCISSORS_CONTAINER = document.createElement("container");
+const ROCK = document.createElement("img");
+const PAPER = document.createElement("img");
+const SCISSOR = document.createElement("img");
+
+//Game choices for Rock, Paper, Scissors
+const CHOICES = [
+  {
+    name: "rock",
+    img: "https://static.vecteezy.com/system/resources/previews/012/604/091/non_2x/fist-gesture-on-left-hand-for-concept-of-rock-paper-scissors-game-isolated-on-white-background-free-photo.jpeg",
+  },
+  {
+    name: "paper",
+    img: "https://static.vecteezy.com/system/resources/previews/012/604/088/large_2x/palm-hand-gesture-on-left-hand-for-concept-of-rock-paper-scissors-game-isolated-on-white-background-free-photo.jpeg",
+  },
+  {
+    name: "scissors",
+    img: "https://static.vecteezy.com/system/resources/previews/012/604/090/non_2x/scissors-gesture-on-left-hand-for-concept-of-rock-paper-scissors-game-isolated-on-white-background-free-photo.jpeg",
+  },
+];
+
+//function for CPU choices
+function cpuChoices() {
+  return CHOICES[Math.floor(Math.random() * CHOICES.length)].name;
+}
+
+console.log(cpuChoices());
