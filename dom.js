@@ -208,15 +208,15 @@ const CHOICES = [
 //Creating DOM RPS Game Button elements
 for (const choice of CHOICES) {
   const RPS_BUTTON = document.createElement("button");
-  RPS_BUTTON.setAttribute("choice", choice.name);
-  RPS_BUTTON.classList.add = "rps-btn";
+  RPS_BUTTON.classList.add("rps-btn");
 
   const CHOICE_IMG = document.createElement("img");
+  CHOICE_IMG.setAttribute("choice", choice.name);
   CHOICE_IMG.setAttribute("src", choice.img);
   CHOICE_IMG.classList.add("rps-btn-img");
 
-  RPS_BUTTON.appendChild(CHOICE_IMG);
   GAME_ROW.appendChild(RPS_BUTTON);
+  RPS_BUTTON.appendChild(CHOICE_IMG);
 }
 
 //function for CPU choices
@@ -226,24 +226,30 @@ function cpuChoices() {
 
 //function for game logic
 function rpsGameLogic(user) {
-  if (user.choice === cpuChoices()) {
-    return (DECIDER.textContent = "tie");
+  debugger;
+  if (user.target.getAttribute("choice") === cpuChoices()) {
+    DECIDER.textContent = "tie";
   }
   if (
-    (user.choice === "rock" && cpuChoices() === "scissors") ||
-    (user.choice === "paper" && cpuChoices() === "rock") ||
-    (user.choice === "scissors" && cpuChoices() === "paper")
+    (user.target.getAttribute("choice") === "rock" &&
+      cpuChoices() === "scissors") ||
+    (user.target.getAttribute("choice") === "paper" &&
+      cpuChoices() === "rock") ||
+    (user.target.getAttribute("choice") === "scissors" &&
+      cpuChoices() === "paper")
   ) {
-    return (DECIDER.textContent = "you win");
+    DECIDER.textContent = "you win";
   }
   if (
-    (user.choice === "scissors" && cpuChoices() === "rock") ||
-    (user.choice === "paper" && cpuChoices() === "scissors") ||
-    (user.choice === "rock" && cpuChoices() === "paper")
+    (user.target.getAttribute("choice") === "scissors" &&
+      cpuChoices() === "rock") ||
+    (user.target.getAttribute("choice") === "paper" &&
+      cpuChoices() === "scissors") ||
+    (user.target.getAttribute("choice") === "rock" && cpuChoices() === "paper")
   ) {
-    return (DECIDER.textContent = "you lose");
+    DECIDER.textContent = "you lose";
   }
-  setTimeout(() => (DECIDER.textContent = null), 2000);
+  setTimeout(() => (DECIDER.textContent = ""), 2000);
 }
 //Appending DOM RPS elements
 document.body.appendChild(RPS_GAME_CONTAINER);
@@ -251,5 +257,4 @@ RPS_GAME_CONTAINER.appendChild(GAME_ROW);
 RPS_GAME_CONTAINER.appendChild(DECIDER);
 
 //Add eventListener
-GAME_ROW.addEventListener("click", rpsGameLogic(e));
-console.log(cpuChoices());
+GAME_ROW.addEventListener("click", (e) => rpsGameLogic(e));

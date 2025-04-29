@@ -322,7 +322,46 @@ a:hover{
         color: white;
     }
 /* End of DOM mini-project */
-
+/* Start of DOM rps mini-project*/
+    .rps-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: auto;
+        height: 30rem;
+    }
+    .rps-container:before{
+        content: 'Rock, Paper, Scissors, Shoot!!';
+        font-size: var(--flex-lg-font);
+        font-family: var(--font);
+        color: black;
+        margin-bottom: 1em;
+    }
+    .rps-game-row{
+        display: flex;
+        gap: 3rem;
+    }
+    .rps-decider{
+        font-size: var(--flex-lg-font);
+        color: black;
+        font-family: var(--font);
+    }
+    .rps-btn-img{
+        width: 100%;
+        height: 100%;
+    }
+    .rps-btn{
+        width: 20rem;
+        height: 20rem;
+        border-radius: 50%;
+        overflow: hidden;
+        transition: transform 1s linear;
+    }
+    .rps-btn:hover{
+        cursor: pointer;
+        transform: rotate(360deg);
+    }
+/* End of DOM rps mini-project*/
 @media (max-width:768px) {
     ul{
         display: none;
