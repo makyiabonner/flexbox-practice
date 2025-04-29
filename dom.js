@@ -226,30 +226,29 @@ function cpuChoices() {
 
 //function for game logic
 function rpsGameLogic(user) {
-  debugger;
-  if (user.target.getAttribute("choice") === cpuChoices()) {
-    DECIDER.textContent = "tie";
+  const cpu = cpuChoices();
+  const userChoice = user.target.getAttribute("choice");
+  if (userChoice === cpu) {
+    DECIDER.textContent =
+      `TIE ,YOU CHOSE ${userChoice}, CPU CHOSE ${cpu}`.toLowerCase();
   }
   if (
-    (user.target.getAttribute("choice") === "rock" &&
-      cpuChoices() === "scissors") ||
-    (user.target.getAttribute("choice") === "paper" &&
-      cpuChoices() === "rock") ||
-    (user.target.getAttribute("choice") === "scissors" &&
-      cpuChoices() === "paper")
+    (userChoice === "rock" && cpu === "scissors") ||
+    (userChoice === "paper" && cpu === "rock") ||
+    (userChoice === "scissors" && cpu === "paper")
   ) {
-    DECIDER.textContent = "you win";
+    DECIDER.textContent =
+      `YOU WINNER,YOU CHOSE ${userChoice}, CPU CHOSE ${cpu}`.toLowerCase();
   }
   if (
-    (user.target.getAttribute("choice") === "scissors" &&
-      cpuChoices() === "rock") ||
-    (user.target.getAttribute("choice") === "paper" &&
-      cpuChoices() === "scissors") ||
-    (user.target.getAttribute("choice") === "rock" && cpuChoices() === "paper")
+    (userChoice === "scissors" && cpu === "rock") ||
+    (userChoice === "paper" && cpu === "scissors") ||
+    (userChoice === "rock" && cpu === "paper")
   ) {
-    DECIDER.textContent = "you lose";
+    DECIDER.textContent =
+      `YOU LOSE,YOU CHOSE ${userChoice}, CPU CHOSE ${cpu}`.toLowerCase();
   }
-  setTimeout(() => (DECIDER.textContent = ""), 2000);
+  setTimeout(() => (DECIDER.textContent = ""), 5000);
 }
 //Appending DOM RPS elements
 document.body.appendChild(RPS_GAME_CONTAINER);
