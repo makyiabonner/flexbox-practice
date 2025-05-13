@@ -362,6 +362,12 @@ a:hover{
         cursor: pointer;
         transform: rotate(360deg);
     }
+
+/* Start of Form mini-project */
+    .form {
+        display: grid;
+    }
+/* End of Form mini-project */
 /* End of DOM rps mini-project*/
 @media (max-width:768px) {
     ul{
