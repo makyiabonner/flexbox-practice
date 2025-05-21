@@ -432,7 +432,106 @@ a:hover{
         padding: .5em;
         border-radius: 2em;
     }
+
+    .form-two{
+        display: grid;
+        width: 20em;
+        height: 40rem;
+        background-color: green;
+        color: white;
+        place-self: center;
+        grid-template-rows: min-content repeat(2, 4.5em);
+        padding: 1em;
+        padding-top: 10rem;
+        gap: 3em;
+        border-radius: 3rem;
+        margin: 3rem;
+    }
+    .form-two > legend{
+        font-size: 1.7rem;
+        
+    }
+    .form-two > div{
+        display: grid;
+        gap: 2em;
+    }
+    .form-two > div > input{
+        font-size: 1.1rem;
+        border: none;
+        border-bottom: 1px solid white;
+        color: white;
+        background-color: transparent;
+    }
+    .form-three{
+        display: grid;
+        margin: 0 auto;
+        background-color: rgb(228, 228, 228);
+        gap: 2em;
+        border-radius: 40px;
+        width: fit-content;
+        padding: 2rem;
+        font-family: var(--font);
+
+        h1{
+            font-size: var(--flex-md-font);
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+        p,
+        label{
+            font-size: var(--flex-sm-font);
+        }
+
+        label{
+            font-weight: 600;
+        }
+
+        section > p > a{
+            color: purple;
+            text-decoration: underline;
+        }
+        div{
+            display: grid;
+            grid-template-rows: 10px 55px;
+            gap: 1em;
+        }
+        input{
+            border-radius: 5px;
+            border: solid 1px rgb(211, 211, 211);
+        }
+        div:last-of-type{
+            width: 25em;
+            grid-template-columns: 10px auto;
+            text-align: left;
+        }
+            
+        }
 /* End of Form mini-project */
+/* Start of Grid mini-project*/
+.griddy{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-areas: 
+        "item1 item1 item2"
+        "item3 item4 item4"
+        "item5 item6 item7"    
+    ;
+    place-self: center;
+    width: 600px;
+    height: 600px;
+    background-color: red;
+}
+.griddy div{
+    border: 3px solid black;
+}
+.griddy div:nth-child(1){grid-area: item1;}
+.griddy div:nth-child(2){grid-area: item2;}
+.griddy div:nth-child(3){grid-area: item3;}
+.griddy div:nth-child(4){grid-area: item4;}
+.griddy div:nth-child(5){grid-area: item5;}
+.griddy div:nth-child(6){grid-area: item6;}
+.griddy div:nth-child(7){grid-area: item7;}
+/* End of Grid mini-project*/
 /* End of DOM rps mini-project*/
 @media (max-width:768px) {
     ul{
